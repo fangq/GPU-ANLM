@@ -1,0 +1,17 @@
+# Ignore unnecessary files
+
+*.png
+
+*.mat
+
+*.o
+
+*.dat
+
+*.m~
+
+*.pdf
+
+/bin
+
+/images

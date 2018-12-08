@@ -11,25 +11,25 @@ Webpage:      http://mcx.space
 Contact:      yuan.yaos at husky.neu.edu
               q.fang at neu.edu
 
-Reference:
+Publication:
 
-Yaoshen Yuan, Leiming Yu, Zafer Dogan, and Qianqian Fang, "A GPU-accelerated 
-Adaptive Non-Local Means Filter for Denoising 3D Monte Carlo Photon Transport 
-Simulations," (under review), 2018
+Yaoshen Yuan, Leiming Yu, Zafer Dogan, and Qianqian Fang, "Graphics processing
+units-accelerated adaptive nonlocal means filter for denoising three-dimensional
+Monte Carlo photon transport simulations," J. of Biomedical Optics, 23(12), 121618 (2018).
+https://doi.org/10.1117/1.JBO.23.12.121618
 
 
 == Contents ==
 
  \src
-        --mixingsubband.m
-        --ANLMGPU.c
-        --filterGPU.h
-        --filterGPU.cu
-        --filterGPU_v.cu
-        --filterGPU_s.cu
+    --ANLMGPU.c
+    --filterGPU.h
+    --filterGPU.cu
+    --filterGPU_v.cu
+    --filterGPU_s.cu
     --Makefile
  \bin
-        --ANLMGPU.mexa64
+    --ganlm.mexa64
  \demo
     --demo_basic.m
     --demo_MCdenoising.m
@@ -80,9 +80,9 @@ denoising other volumetric images as the MR or CT 3D scans.
 If you use this filter in your research, the author of this software would like 
 you to cite the below paper in your related publications [1].
 
-[1] Yaoshen Yuan, Leiming Yu, Zafer Dogan, and Qianqian Fang. A GPU-accelerated 
-Adaptive Non-Local Means Filter for Denoising 3D Monte Carlo Photon Transport 
-Simulations. Submitted to JBO, 2018
+[1] Yuan Y, Yu L, Doğan Z, Fang Q. Graphics processing units-accelerated adaptive
+nonlocal means filter for denoising three-dimensional Monte Carlo photon transport
+simulations. Journal of Biomedical Optics. 2018 Nov; 23(12): 121618.
 
 In addition, other publications relevant to Monte Carlo photon transport and 
 adaptive non-local means filter can be found below.
