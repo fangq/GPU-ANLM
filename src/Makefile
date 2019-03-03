@@ -15,7 +15,6 @@ AR=$(CC)
 BACKEND=cuda
 
 OBJSUFFIX=.o
-OBJS      := $(addsuffix $(OBJSUFFIX), $(FILES))
 
 BINARY=mcxfilter
 
@@ -84,6 +83,8 @@ else
      endif
   endif
 endif
+
+OBJS      := $(addsuffix $(OBJSUFFIX), $(FILES))
 
 mex:    CUCCOPT+=--compiler-options "$(DLLFLAG)"
 mex:    LINKOPT+=ANLMGPU.cpp -outdir $(OUTPUT_DIR) $(INCLUDEDIRS)
