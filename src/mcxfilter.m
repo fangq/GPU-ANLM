@@ -12,9 +12,9 @@
 %               q.fang at neu.edu
 % 
 % Format:
-%     [ima1,ima2]=ganlm(rima,v,f1,f2); (default)
-%     [ima1,ima2]=ganlm(rima,v,f1,f2,rician,gpuid,bw); (other options)
-%     [ima1,~]=ganlm(rima,v,f1,0,rician,gpuid,bw); (single filtering)
+%     [ima1,ima2]=mcxfilter(rima,v,f1,f2); (default)
+%     [ima1,ima2]=mcxfilter(rima,v,f1,f2,rician,gpuid,bw); (other options)
+%     [ima1,~]=mcxfilter(rima,v,f1,0,rician,gpuid,bw); (single filtering)
 % 
 % Input:
 % == Required ==
