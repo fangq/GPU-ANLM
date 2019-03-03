@@ -8,8 +8,8 @@
 
 %% Configure MCXLAB
 
-addpath(genpath('...')) % add path of MCX
-addpath(genpath('../')) % add path of ANLM filter
+%addpath(genpath('..')) % add path of MCX
+%addpath(genpath('../')) % add path of ANLM filter
 
 clear cfg
 cfg.nphoton=1e7;
@@ -43,7 +43,7 @@ rima = sum(flux.data,4);
 
 % run filter
 tic;
-[imaS1,imaL1]=ganlm(rima,v,f1,f2,rician,gpuid,blockwidth);
+[imaS1,imaL1]=mcxfilter(rima,v,f1,f2,rician,gpuid,blockwidth);
 % Sub-band mixing process
 image1=mixingsubband(imaS1,imaL1); % originally fimau1,fimao1
 t_filter=toc;

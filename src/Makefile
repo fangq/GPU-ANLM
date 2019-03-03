@@ -24,7 +24,7 @@ CPPOPT=-g -Wall -std=c99 # -DUSE_OS_TIMER
 
 CUDART=-lcudart
 CUOMPLINK=
-CUDA_STATIC=--cudart static -Xcompiler "-static-libgcc -static-libstdc++"
+CUDA_STATIC=-lcudadevrt -lcudart_static -ldl 
 
 ARCH = $(shell uname -m)
 PLATFORM = $(shell uname -s)
@@ -36,9 +36,10 @@ ifeq ($(BACKEND),ocelot)
   CUCCOPT=-D__STRICT_ANSI__ -g #--maxrregcount 32
 else ifeq ($(BACKEND),cudastatic)
   ifeq ($(findstring Darwin,$(PLATFORM)), Darwin)
-      CUDART=-lcudadevrt -lcudart_static -ldl -static-libgcc -static-libstdc++
+      CUDART=-lcudadevrt -lcudart_static -ldl
   else
-      CUDART=-lcudadevrt -lcudart_static -ldl -lrt -static-libgcc -static-libstdc++
+      CUDART=-lcudadevrt -lcudart_static -ldl 
+      USERLINKOPT=-lrt
   endif
   LINKOPT=-L/usr/local/cuda/lib -lm $(CUDART)
   CUCCOPT=-g -lineinfo -Xcompiler -Wall#-arch compute_20 #--maxrregcount 32
@@ -78,7 +79,7 @@ else
         ifeq ($(BACKEND),cuda)
            LINKOPT=-L/usr/local/cuda/lib64 $(CUDART) -lm -lstdc++
         else ifeq ($(BACKEND),cudastatic)
-           LINKOPT=-L/usr/local/cuda/lib64 $(CUDART) -lm -static-libgcc -static-libstdc++
+           LINKOPT=-L/usr/local/cuda/lib64 $(CUDART) -lm 
         endif
      endif
   endif
