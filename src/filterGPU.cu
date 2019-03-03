@@ -21,7 +21,6 @@
 
 #include <stdio.h>
 #include <math.h>       /* floor */
-#include <unistd.h>
 #include "filterGPU.h"
 #include <time.h>
 #include <cuda.h>
