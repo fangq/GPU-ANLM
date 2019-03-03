@@ -17,7 +17,7 @@ BACKEND=cuda
 OBJSUFFIX=.o
 OBJS      := $(addsuffix $(OBJSUFFIX), $(FILES))
 
-BINARY=ganlm
+BINARY=mcxfilter
 
 INCLUDEDIRS=-I/usr/local/cuda/include
 
