@@ -48,6 +48,12 @@ typedef struct
     int flag;
 }myargument;
 
+#if (! defined MX_API_VER) || (MX_API_VER < 0x07300000)
+      typedef int dimtype;                              /**<  MATLAB before 2017 uses int as the dimension array */
+#else
+      typedef size_t dimtype;                           /**<  MATLAB after 2017 uses size_t as the dimension array */
+#endif
+
 void passParam(myargument *arg)
 {
 
@@ -78,8 +84,8 @@ void mexFunction(int nlhs, mxArray *plhs[], int nrhs, const mxArray *prhs[])
     mxArray *pv;
     float max;
     int i,j,k,ii,jj,kk,ni,nj,nk,v,f1,f2,ndim,indice,Nthreads,ini,fin,blockwidth,blockwidth2,s,it,jt,kt,gpuid,request,flag;
-    const int *dims;
-    int dimfull[3];
+    const dimtype *dims;
+    dimtype dimfull[3];
     bool r;
 
     myargument filterParam;
