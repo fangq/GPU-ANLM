@@ -617,7 +617,7 @@ void runFilter(float * ima_input, float * Estimate1, int f1, float * Estimate2, 
 	preProcess<<<dimGridPre,dimBlockPre,sharedsizePre*sizeof(float)>>>(mean, R, var, dimfull_x, dimfull_y, dimfull_z, s, widthPrecom);
 	// preProcess<<<dimGridPre,dimBlockPre>>>(f1);
 
-	CUDA_ASSERT(cudaThreadSynchronize());	// Synchronize until all mean, R and variance are finished
+	CUDA_ASSERT(cudaDeviceSynchronize());	// Synchronize until all mean, R and variance are finished
 	
 	CUDA_ASSERT(cudaEventCreate(&stop));
 	CUDA_ASSERT(cudaEventRecord(stop,0));
@@ -792,7 +792,7 @@ void runFilter(float * ima_input, float * Estimate1, int f1, float * Estimate2, 
 
 	// First filtering
 	ANLMfilter<<<dimGrid, dimBlock,sharedsize*sizeof(float)>>>(EstimateKernel);
-	CUDA_ASSERT(cudaThreadSynchronize());
+	CUDA_ASSERT(cudaDeviceSynchronize());
 	
 	CUDA_ASSERT(cudaEventCreate(&stop));
 	CUDA_ASSERT(cudaEventRecord(stop,0));
@@ -840,7 +840,7 @@ void runFilter(float * ima_input, float * Estimate1, int f1, float * Estimate2, 
 
 	// First filtering
 	ANLMfilter<<<dimGrid2, dimBlock2,sharedsize*sizeof(float)>>>(EstimateKernel2);
-	CUDA_ASSERT(cudaThreadSynchronize());
+	CUDA_ASSERT(cudaDeviceSynchronize());
 	
 	CUDA_ASSERT(cudaEventCreate(&stop));
 	CUDA_ASSERT(cudaEventRecord(stop,0));
