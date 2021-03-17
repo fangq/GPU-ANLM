@@ -93,6 +93,13 @@ mex:    AR=$(MEX)
 mex:    OUTPUTFLAG:=-output
 mex:    all
 
+oct: CUCCOPT+=--compiler-options "$(DLLFLAG)"
+oct: AR= CXXFLAGS='-DSAVE_DETECTORS -fopenmp $(MEXCCOPT) $(USERCCOPT)' LDFLAGS='-fopenmp $(USERLINKOPT)' LDFLAGS='$(LFLAGS)' mkoctfile
+oct: LINKOPT+=--mex ANLMGPU.cpp $(INCLUDEDIRS)
+oct: OUTPUTFLAG:=-output
+oct: BINARY=mcxfilter.mex
+oct: all
+
 all: $(OUTPUT_DIR)/$(BINARY)
 
 $(OUTPUT_DIR)/$(BINARY): makedirs $(OBJS)

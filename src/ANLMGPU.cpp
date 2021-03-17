@@ -23,7 +23,6 @@
 #include "mex.h"
 #include <stdlib.h>
 #include <stdio.h>
-#include "matrix.h"
 #include "filterGPU.h"
 
 typedef struct
